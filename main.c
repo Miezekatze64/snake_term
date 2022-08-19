@@ -6,13 +6,17 @@
 #include <time.h>
 #include <stdbool.h>
 
-#if defined(_win32) || defined(_WIN32) || defined(_WIN64) || defined(__MINGW32__) || defined(__CYGWIN__)
-#error This program currently does NOT support windows (and very likely never wikk)! \
-    if you are thinking otherwise, please delete this line or add `undef(_WIN32)`..
+#if defined(_win32) || defined(_WIN32) || \
+    defined(_WIN64) || defined(__MINGW32__) || defined(__CYGWIN__)
+ #error This program currently does NOT                               \
+    support windows (and very likely never will)!                       \
+    if you are thinking otherwise, please delete this                   \
+    line or add `undef(_WIN32)`..
 int main() {}
 #else
 #ifndef __linux__
-#warning this program is not tested for your operating systems, some bugs might occur...
+#warning this program is not tested for your \
+    operating systems, some bugs might occur...
 #endif //__linux__
 
 #include <unistd.h>
